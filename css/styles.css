@@ -16,17 +16,27 @@ body {
 }
 
 #states a path { 
-	transition: fill 200ms ease-in-out;
-	-moz-transition: fill 200ms ease-in-out;
-	-webkit-transition: fill 200ms ease-in-out; 
 	fill: #5fafed;
 }
 
+@media (min-width: 720px) {
+	#states a path {
+		transition: fill 200ms ease-in-out;
+		-moz-transition: fill 200ms ease-in-out;
+		-webkit-transition: fill 200ms ease-in-out; 	
+	}
+}
+
 #states a:hover path { 
-	transition: fill 200ms ease-in-out; 
-	-moz-transition: fill 200ms ease-in-out; 
-	-webkit-transition: fill 200ms ease-in-out; 
 	fill: #5ba8e3;
+}
+
+@media (min-width: 720px) {
+	#states a path {
+		transition: fill 200ms ease-in-out; 
+		-moz-transition: fill 200ms ease-in-out; 
+		-webkit-transition: fill 200ms ease-in-out; 	
+	}
 }
 
 #states a:hover path { 
@@ -90,8 +100,16 @@ body {
 .sidebar h1 {
 	color: #2374b3;
 	font-family: 'Rosario', sans-serif;
-	font-size: 2.8rem;
+	font-size: 2.3rem;
+	margin-bottom: .2rem;
 	text-transform: uppercase;
+}
+
+@media (min-width: 720px) {
+	.sidebar h1 {
+		font-size: 2.8rem;	
+		margin-bottom: 0.5rem;	
+	}
 }
 
 .state-count {
