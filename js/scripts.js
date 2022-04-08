@@ -4,7 +4,10 @@
 	const countVal = document.querySelector('.state-count-val');
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
+	let px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
 	const stateCount = [];
+
+	$(window).resize(function(){isZooming();});
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
@@ -33,6 +36,18 @@
 			countUpdate(stateCount);
 		});
 	});
+
+	function isZooming(){
+    let newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+    if(newPx_ratio != px_ratio){
+      px_ratio = newPx_ratio;
+      countDisplay.classList.add('hidden');	
+      return true;
+    }
+    else {
+      return false;
+    }
+	}
 
 	function countUpdate(arr) {	
 		if (arr.length > 0) {
