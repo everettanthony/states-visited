@@ -41,7 +41,7 @@
     let newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
     if(newPx_ratio != px_ratio){
       px_ratio = newPx_ratio;
-      countDisplay.classList.add('hidden');	
+      countDisplay.style.opacity = '0';	
       return true;
     }
     else {
