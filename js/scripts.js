@@ -2,12 +2,10 @@
 	const stateLinks = document.querySelectorAll('#states a.hint');
 	const countDisplay = document.querySelector('.state-count');
 	const countVal = document.querySelector('.state-count-val');
+	const mobileCountVal = document.querySelector('.mobile-count');
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
-	let px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
 	const stateCount = [];
-
-	$(window).resize(function(){isZooming();});
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
@@ -37,21 +35,10 @@
 		});
 	});
 
-	function isZooming(){
-    let newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-    if(newPx_ratio != px_ratio){
-      px_ratio = newPx_ratio;
-      countDisplay.style.opacity = '0';	
-      return true;
-    }
-    else {
-      return false;
-    }
-	}
-
 	function countUpdate(arr) {	
 		if (arr.length > 0) {
 			countVal.textContent = arr.length;
+			mobileCountVal.textContent = arr.length;
 			btnReset.classList.remove('hidden');
 			btnShare.classList.remove('hidden');
 		}
