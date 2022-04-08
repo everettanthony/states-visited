@@ -1,0 +1,138 @@
+html,
+body {
+	height: 100vh;
+}
+
+.hidden {
+	display: none;
+}
+
+#states {
+	font-family: 'Lato', 'Arial', sans-serif;
+}
+
+#states a {
+	text-decoration: none;
+}
+
+#states a path { 
+	transition: fill 200ms ease-in-out;
+	-moz-transition: fill 200ms ease-in-out;
+	-webkit-transition: fill 200ms ease-in-out; 
+	fill: #5fafed;
+}
+
+#states a:hover path { 
+	transition: fill 200ms ease-in-out; 
+	-moz-transition: fill 200ms ease-in-out; 
+	-webkit-transition: fill 200ms ease-in-out; 
+	fill: #5ba8e3;
+}
+
+#states a:hover path { 
+	cursor: pointer; 
+	fill: #5ba8e3;
+}
+
+#states a.state-active path {
+	fill: #2c77b1;
+}
+
+#states a:hover.state-active path {
+	fill: #2c77b1;
+}
+
+#states a text { 
+	cursor: pointer; 
+	fill: #fff;
+	font-size: .6rem;
+}
+
+#states a:hover text { 
+	fill: #fff; 
+	color: #fff;
+}
+
+#states a.inverse text:hover { 
+	fill: #222;
+}
+
+#states a.inverse text { 
+	fill: #222;
+}
+
+.col-container {
+	padding: 2.5rem 3rem;
+}
+
+@media (min-width: 720px) {
+	.col-container {
+		height: 100vh;		
+	}
+}
+
+.stage {
+	padding: 1rem 0 1.5rem;
+	position: relative;
+}
+
+@media (min-width: 720px) {
+	.stage {
+		padding: 2rem 0;		
+	}
+}
+
+.sidebar {
+	background-color: #e7f4ff;
+	border-left: 1px solid #d1e0ed;
+}
+
+.sidebar h1 {
+	color: #2374b3;
+	font-family: 'Rosario', sans-serif;
+	font-size: 2.8rem;
+	text-transform: uppercase;
+}
+
+.state-count {
+	bottom: 0.75rem;
+	font-size: 1.25rem;	
+	position: absolute;
+	right: 1rem;
+}
+
+@media (min-width: 720px) {
+	.state-count {
+		bottom: 2rem;
+		font-size: 2rem;	
+		right: 3rem;		
+	}
+}
+
+.state-count-val {
+	font-weight: 700;
+}
+
+.state-btns {
+	margin-top: 1.5rem;
+}
+
+.btn-reset {
+	background-color: #f5f5f5;
+  border-color: #e1e1e1;
+}
+
+.btn-reset:hover {
+	background-color: #f3f2f2;
+  border-color: #e1e1e1;
+}
+
+.btn-share {
+	background-color: #2c77b1;
+  border-color: #2c77b1;
+}
+
+.btn-share:hover {
+	background-color: #226599;
+	border-color: #226599;
+}
