@@ -134,7 +134,7 @@ body {
   font-weight: 700;
   line-height: .5;
   padding: 0.5rem;
-  position: absolute;
+  position: fixed;
   right: 0.65rem;
   top: 0.65rem;
 }

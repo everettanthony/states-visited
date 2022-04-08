@@ -41,11 +41,13 @@
 			mobileCountVal.textContent = arr.length;
 			btnReset.classList.remove('hidden');
 			btnShare.classList.remove('hidden');
+			mobileCountVal.classList.remove('hidden');
 		}
 		else {
 			countDisplay.classList.add('hidden');		
 			btnReset.classList.add('hidden');
 			btnShare.classList.add('hidden');
+			mobileCountVal.classList.add('hidden');
 		}
 	}
 })();
