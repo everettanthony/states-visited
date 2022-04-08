@@ -135,8 +135,8 @@ body {
   line-height: .5;
   padding: 0.5rem;
   position: fixed;
-  right: 0.65rem;
-  top: 0.65rem;
+  right: 0;
+  top: 0;
 }
 
 @media (min-width: 720px) {

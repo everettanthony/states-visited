@@ -3,9 +3,21 @@
 	const countDisplay = document.querySelector('.state-count');
 	const countVal = document.querySelector('.state-count-val');
 	const mobileCountVal = document.querySelector('.mobile-count');
+	const spinner = document.querySelector('.spinner-grow');
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
 	const stateCount = [];
+
+	btnShare.addEventListener('click', function() {
+		const screenshotTarget = document.querySelector('.stage');
+
+		spinner.classList.remove('hidden');
+
+		html2canvas(screenshotTarget).then((canvas) => {
+		  window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
+		  spinner.classList.add('hidden');
+		});
+	});
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
