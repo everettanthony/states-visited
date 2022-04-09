@@ -8,7 +8,7 @@
 	const btnShare = document.querySelector('.btn-share');
 	const stateCount = [];
 
-	btnShare.addEventListener('click', function() {
+/*	btnShare.addEventListener('click', function() {
 		const screenshotTarget = document.querySelector('.stage');
 
 		spinner.classList.remove('hidden');
@@ -17,7 +17,7 @@
 		  window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
 		  spinner.classList.add('hidden');
 		});
-	});
+	});*/
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
