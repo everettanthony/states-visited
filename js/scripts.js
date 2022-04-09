@@ -65,7 +65,6 @@
 			catch (e) {
 				console.log("Screenshot failed: " + e);
 				spinner.classList.add('hidden');
-				alert('fail in final image function');
 			}
 		});
 	}
@@ -96,7 +95,6 @@
     } else {
       console.log(`Your system doesn't support sharing files.`);
       spinner.classList.add('hidden');
-      alert('fail in screenshot function');
     }
 	}
 })();
