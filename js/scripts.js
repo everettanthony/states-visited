@@ -86,7 +86,7 @@
     const shareData = {
       files: filesArray,
       title: document.title,
-			text: `I've visited ${countVal} states in the U.S.`,
+			text: `I've visited ${countVal.textContent} states in the U.S.`,
     };
 
     if (navigator.canShare && navigator.canShare({ files: filesArray })) {
