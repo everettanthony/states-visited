@@ -6,57 +6,10 @@
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
 	const stateCount = [];
-	const screenShotArr = ['https://everettanthony.github.io/states-visited/img/states.jpg'];
 
 	btnShare.addEventListener('click', function() {
 		createFinalImage();
 	});
-
-	function createFinalImage() {
-		const screenshotContainer = document.querySelector('.stage');
-		spinner.classList.remove('hidden');
-
-		html2canvas(screenshotContainer).then(canvas => {
-			try {
-				var finalScreenshot = canvas.toDataURL('image/jpeg', 1);
-
-				shareScreenshot(finalScreenshot);
-			}
-			catch (e) {
-				console.log("Screenshot failed: " + e);
-				spinner.classList.add('hidden');
-			}
-		});
-	}
-
-	async function shareScreenshot(finalScreenshot) {
-    const blob = await (await fetch(finalScreenshot)).blob();
-
-    const filesArray = [
-      new File(
-        [blob],
-        `states-visited${Date.now()}.jpg`,
-        {
-          type: blob.type,
-          lastModified: new Date().getTime()
-        }
-      )
-    ];
-
-    const shareData = {
-      files: filesArray,
-      title: document.title,
-			text: `I've visited ${countVal} states in the U.S.`,
-    };
-
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      navigator.share(shareData);
-      spinner.classList.add('hidden');
-    } else {
-      console.log(`Your system doesn't support sharing files.`);
-      spinner.classList.add('hidden');
-    }
-	}
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
@@ -97,6 +50,54 @@
 			btnReset.classList.add('hidden');
 		  btnShare.classList.add('hidden');
 		}
+	}
+
+	function createFinalImage() {
+		const screenshotContainer = document.querySelector('.stage');
+		spinner.classList.remove('hidden');
+
+		html2canvas(screenshotContainer).then(canvas => {
+			try {
+				var finalScreenshot = canvas.toDataURL('image/jpeg', 1);
+
+				shareScreenshot(finalScreenshot);
+			}
+			catch (e) {
+				console.log("Screenshot failed: " + e);
+				spinner.classList.add('hidden');
+				alert('fail in final image function');
+			}
+		});
+	}
+
+	async function shareScreenshot(finalScreenshot) {
+    const blob = await (await fetch(finalScreenshot)).blob();
+
+    const filesArray = [
+      new File(
+        [blob],
+        `states-visited${Date.now()}.jpg`,
+        {
+          type: blob.type,
+          lastModified: new Date().getTime()
+        }
+      )
+    ];
+
+    const shareData = {
+      files: filesArray,
+      title: document.title,
+			text: `I've visited ${countVal} states in the U.S.`,
+    };
+
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+      navigator.share(shareData);
+      spinner.classList.add('hidden');
+    } else {
+      console.log(`Your system doesn't support sharing files.`);
+      spinner.classList.add('hidden');
+      alert('fail in screenshot function');
+    }
 	}
 })();
 
