@@ -7,26 +7,44 @@
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
 	const stateCount = [];
+	const screenShotArr = [];
 
 	btnShare.addEventListener('click', function() {
-		if (navigator.share) {
-			navigator.share({
-				title: document.title,
-				text: "Hello World",
-				url: window.location.href
-			})
-			.then(() => console.log('Successful share'))
-			.catch(error => console.log('Error sharing:', error));
-		}
-
-		/*const screenshotTarget = document.querySelector('.stage');
+		const screenshotTarget = document.querySelector('.stage');
 
 		spinner.classList.remove('hidden');
 
 		html2canvas(screenshotTarget).then((canvas) => {
-		  window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
+			screenShotArr.push(canvas.toDataURL());
+
+			if (navigator.canShare && navigator.canShare({ files: screenShotArr })) {
+				navigator.share({
+					files: screenShotArr,
+					title: document.title,
+					text: `I've visited ${mobileCountVal} states in the U.S.`,
+				})
+				.then(() => console.log('Share was successful.'))
+				.catch((error) => console.log('Sharing failed', error));
+			} 
+			else {
+				console.log(`Your system doesn't support sharing files.`);
+			}
+
+/*			if (navigator.share) {
+				navigator.share({
+					title: document.title,
+					text: `I've visited ${mobileCountVal} states in the U.S.`,
+					url: window.location.href
+				})
+				.then(() => console.log('Successful share'))
+				.catch(error => console.log('Error sharing:', error));
+			}*/
+
+		  //window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
 		  spinner.classList.add('hidden');
-		});*/
+		});
+
+
 	});
 
 	btnReset.addEventListener('click', function() {
