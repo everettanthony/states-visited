@@ -127,24 +127,6 @@ body {
 	}
 }
 
-.mobile-count {
-  background-color: rgba(44, 119, 177, 0.5);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: .5;
-  padding: 0.5rem;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
-
-@media (min-width: 720px) {
-	.mobile-count {
-		display: none;	
-	}
-}
-
 .state-count-val {
 	font-weight: 700;
 }
