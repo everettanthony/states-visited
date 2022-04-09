@@ -5,10 +5,47 @@
 	const spinner = document.querySelector('.spinner-grow');
 	const btnReset = document.querySelector('.btn-reset');
 	const btnShare = document.querySelector('.btn-share');
+	const statesArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 
+	'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 
+	'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 
+	'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 
+	'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 
+	'West Virginia', 'Wisconsin', 'Wyoming'];
 	const stateCount = [];
+	const selectedStates = [];
+
+/*	if (document.cookie) querySavedStates();
+
+	function querySavedStates() {
+		const cookieValue = document.cookie
+		  .split('; ')
+		  .find(row => row.startsWith('states='))
+		  .split('=')[1];
+
+		if (cookieValue) {
+			const savedStates = statesArr
+				.filter(element => cookieValue.split(',')
+				.includes(element));
+
+			stateLinks.forEach(function(state, idx) {
+				const index = savedStates.indexOf(state.getAttribute('title'));
+
+				if (index > -1) {
+					state.classList.toggle('state-active');
+					stateCount.push(savedStates[index]);
+				}
+
+				if (countDisplay.classList.contains('hidden'))
+					countDisplay.classList.remove('hidden');
+
+				countUpdate(stateCount);		
+			}); 		
+		}
+	}*/
 
 	btnShare.addEventListener('click', function() {
 		createFinalImage();
+		//document.cookie = "states="+stateCount+"; SameSite=None; Secure";
 	});
 
 	btnReset.addEventListener('click', function() {
