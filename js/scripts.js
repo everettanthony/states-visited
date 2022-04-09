@@ -8,16 +8,26 @@
 	const btnShare = document.querySelector('.btn-share');
 	const stateCount = [];
 
-/*	btnShare.addEventListener('click', function() {
-		const screenshotTarget = document.querySelector('.stage');
+	btnShare.addEventListener('click', function() {
+		if (navigator.share) {
+			navigator.share({
+				title: document.title,
+				text: "Hello World",
+				url: window.location.href
+			})
+			.then(() => console.log('Successful share'))
+			.catch(error => console.log('Error sharing:', error));
+		}
+
+		/*const screenshotTarget = document.querySelector('.stage');
 
 		spinner.classList.remove('hidden');
 
 		html2canvas(screenshotTarget).then((canvas) => {
 		  window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
 		  spinner.classList.add('hidden');
-		});
-	});*/
+		});*/
+	});
 
 	btnReset.addEventListener('click', function() {
 		stateLinks.forEach(function(state) {
@@ -52,13 +62,13 @@
 			countVal.textContent = arr.length;
 			mobileCountVal.textContent = arr.length;
 			btnReset.classList.remove('hidden');
-		//	btnShare.classList.remove('hidden');
+		  btnShare.classList.remove('hidden');
 			mobileCountVal.classList.remove('hidden');
 		}
 		else {
 			countDisplay.classList.add('hidden');		
 			btnReset.classList.add('hidden');
-		//	btnShare.classList.add('hidden');
+		  btnShare.classList.add('hidden');
 			mobileCountVal.classList.add('hidden');
 		}
 	}
